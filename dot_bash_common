@@ -5,3 +5,6 @@ alias cpy="xclip -selection clipboard"
 
 # Source .bashrc again
 alias rc="source ~/.bashrc"
+
+# Alias for chezmoi command
+alias chz=chezmoi
