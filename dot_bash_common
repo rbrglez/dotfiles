@@ -17,3 +17,22 @@ cdg() {
 
 # Trim the directory path in the prompt to show only the last N directories
 export PROMPT_DIRTRIM=3
+
+################################################################################
+# Used by SSH to differentiate between private and work GitLab accounts.
+################################################################################
+# Set initial value of environmental variable
+export GITLAB_USER="rbrglez-aviat"
+
+# Function to toggle between GitLab users
+toggle_gitlab_user() {
+    if [[ "$GITLAB_USER" == "rbrglez-aviat" ]]; then
+        export GITLAB_USER="rbrglez-private"
+        echo "Switched to rbrglez-private"
+    else
+        export GITLAB_USER="rbrglez-aviat"
+        echo "Switched to rbrglez-aviat"
+    fi
+}
+
+alias tgu="toggle_gitlab_user"
