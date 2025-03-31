@@ -1,10 +1,19 @@
 # Common Bash script between devices
 
 # Copy to clipboard
-alias cpy="xclip -selection clipboard"
+alias cpynl="xclip -selection clipboard"
+alias cpy="tr '\n' ' ' | xclip -selection clipboard"
 
 # Source .bashrc again
 alias rc="source ~/.bashrc"
 
 # Alias for chezmoi command
 alias chz=chezmoi
+
+# Navigate to the root directory of the current Git repository
+cdg() {
+ cd "$(git rev-parse --show-toplevel 2>/dev/null || echo \"Not a git repository.\")"
+}
+
+# Trim the directory path in the prompt to show only the last N directories
+export PROMPT_DIRTRIM=3
