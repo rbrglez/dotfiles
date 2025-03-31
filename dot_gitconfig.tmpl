@@ -4,6 +4,8 @@
 	cm = commit
 	st = status
 	last = log -1 HEAD
+	unstage = reset HEAD --
+	cloner = clone --recurse-submodules
 [user]
 	email = {{ .email | quote }}
 	name = Rene Brglez
