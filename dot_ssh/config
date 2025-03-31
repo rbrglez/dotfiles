@@ -1,0 +1,46 @@
+################################################################################
+# Services
+################################################################################
+
+################################################################################
+# Gitlab
+
+Host gitlab.com
+	HostName gitlab.com
+# Work gitlab account
+Match exec "[[ $GITLAB_USER == 'rbrglez-aviat' ]]"
+	IdentityFile ~/.ssh/services/aviat-cloud-gitlab/id_ed25519
+# Private gitlab account
+Match exec "[[ $GITLAB_USER == 'rbrglez-private' ]]"
+	IdentityFile ~/.ssh/services/private-cloud-gitlab/id_ed25519
+
+################################################################################
+# Github
+
+Host github.com
+	Hostname github.com
+	IdentityFile ~/.ssh/services/private-cloud-github/id_ed25519
+
+################################################################################
+# Servers
+################################################################################
+
+################################################################################
+## Work Servers
+
+Host slhwserver
+	HostName 11.200.10.10
+	User rbrglez
+	ForwardX11 yes
+	Compression yes
+	IdentityFile ~/.ssh/servers/aviat-slhwserver/id_ed25519
+
+################################################################################
+## Home Servers
+
+Host workhorse
+	Hostname 192.168.64.110
+	User rbrglez
+	ForwardX11 yes
+	Compression yes
+	IdentityFile ~/.ssh/servers/home-workhorse/id_ed25519
